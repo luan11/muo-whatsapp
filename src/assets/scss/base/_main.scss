@@ -1,0 +1,256 @@
+.muow {
+	position: fixed;
+	z-index: 999;
+	right: 32px;
+	bottom: 32px;
+
+	@include xs-down {
+		right: 16px;
+		bottom: 28px;
+	}
+
+	@include responsive($max: 320) {
+		right: 10px;
+	}
+
+	* {
+		font-family: 'Open Sans', sans-serif;
+		outline: none;
+	}
+
+	button {
+		cursor: pointer;
+	}
+
+	&-chat {
+		transition: transform .2s ease-in-out .3s, opacity .2s ease-in-out;
+		opacity: 0;
+		transform: scale(0);
+		position: absolute;
+		bottom: 56px;
+		right: 0;
+		background-color: $sand;
+		width: 300px;
+		height: 150px;
+		border-radius: 8px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		animation: softdown .3s linear;
+
+		&.open {
+			@include transition($property: opacity, $delay: .1s);
+			opacity: 1;
+			transform: scale(1);
+			animation: softup .4s linear;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			width: 32px;
+			height: 32px;
+			transform: rotate(45deg);
+			background: $black;
+			right: 30px;
+			bottom: -12px;
+			background-color: $sand;
+		}
+
+		#muow-close {
+			transition: z-index .3s ease-in-out .3s, transform .3s ease-in-out, opacity .3s ease-in-out;
+			position: absolute;
+			height: 24px;
+			width: 24px;
+			border: 0;
+			right: 16px;
+			top: -12px;
+			background-color: $white;
+			border-radius: 50%;
+			box-shadow: 0px 2px 6px rgba($black, 0.45);
+
+			> img {
+				width: 12px;
+				height: 12px;
+			}
+			
+			@include responsive('MIN', $min: $screen-md) {
+				opacity: 0;
+				transform: translateX(100%);
+				z-index: -1;
+			}
+
+			&:hover {
+				@include transition($duration: .35s);
+				box-shadow: 0px 2px 8px rgba($black, 0.75);
+			}
+		}
+
+		.header {
+			border-top-left-radius: 8px;
+			border-top-right-radius: 8px;
+			background-color: $green-darkest;
+			padding: 6px 0;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			width: 100%;
+
+			.profile {
+				&-picture {
+					border-radius: 50%;
+					width: 28px;
+					height: 28px;
+					margin-left: 12px;
+				}
+
+				&-name {
+					margin: 0 12px 0 10px;
+					color: $white;
+					font-weight: 600;
+					line-height: 19px;
+					font-size: 14px;
+				}
+			}
+		}
+
+		.main {
+			position: relative;
+			z-index: 1;
+			width: 100%;
+			margin: auto 0 18px;
+			display: flex;
+			position: relative;
+
+			> .muow-control {
+				margin: 0 10px;
+			}
+
+			#muow-send {
+				@include transition;
+				width: 38px;
+				height: 38px;
+				background-color: $green-darkest;
+				border: 0;
+				border-radius: 50%;
+				display: block;
+				position: absolute;
+				right: 10px;
+				top: 0;
+				bottom: 0;
+				margin: auto 0;
+
+				> img {
+					width: 18px;
+					height: 16px;
+				}
+
+				&:hover, &:focus {
+					background-color: $green-dark;
+				}
+			}
+		}
+
+		&:hover {
+			@include responsive('MIN', $min: $screen-md) {
+				#muow-close {
+					@include transition($duration: .35s);
+					z-index: 0;
+					opacity: 1;
+					transform: translateX(0);
+				}
+			}
+		}
+	}
+
+	&-control {
+		border: 0;
+		height: 30px;
+		border-radius: 15px;
+		padding: 0 15px;
+		font-size: 12px;
+		line-height: 16px;
+		color: $black;
+		width: 100%;
+		box-shadow: 0px 2px 4px rgba($black, 0.15);
+
+		&::placeholder {
+			@include transition;
+			color: $gray-light;
+		}
+
+		&:focus {
+			&::placeholder {
+				color: $white;
+			}
+		}
+	}
+
+	&-icon {
+		@include transition;
+		display: block;
+		margin: auto;
+	}
+
+	#muow-trigger {
+		position: absolute;
+		right: 22px;
+		bottom: 0;
+		@include transition;
+		width: 48px;
+		height: 48px;
+		border: 0;
+		display: block;
+		background-color: $green-light;
+		border-radius: 50%;
+		box-shadow: 0px 2px 4px rgba($black, 0.4);
+
+		> img {
+			width: 30px;
+			height: 30px;
+		}
+
+		&:hover {
+			background-color: #3D9D61;
+			box-shadow: 0px 2px 4px rgba($black, 0.65);
+		}
+
+		&.active {
+			background-color: #368A56;
+			box-shadow: 0px 0px 8px rgba($black, 0.75);
+
+			> .muow-icon {
+				transform: scale(0.83);
+			}
+		}
+	}
+}
+
+@keyframes softup {
+	0% {
+		transform: translateY(30%) scale(1);
+	}
+
+	50% {
+		transform: translateY(15%) scale(1);
+	}
+
+	100% {
+		transform: translateY(0) scale(1);
+	}
+}
+
+@keyframes softdown {
+	0% {
+		transform: translateY(0) scale(1);
+	}
+
+	50% {
+		transform: translateY(15%) scale(1);
+	}
+
+	100% {
+		transform: translateY(30%) scale(1);
+	}
+}
