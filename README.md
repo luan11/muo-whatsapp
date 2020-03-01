@@ -1,4 +1,4 @@
-# Message us on WhatsApp (muo-whatsapp)
+# Message us on WhatsApp (muo-whatsapp) - [Demo](https://luan11.github.io/muow-example/)
 
 > Easy way to insert the floating button for Message us on Whatsapp.
 
@@ -111,19 +111,21 @@ new Muow({
   countryCode: '55',
   number: '11912345678',
  },
- profilePicture: 'https://www.placehold.it/28x28',
+ profilePicture: 'https://avatars1.githubusercontent.com/u/36796413?s=28&v=4',
  profileName: 'luan11',
  messageFieldPlaceholder: 'Write what you need...',
  defaultMessage: 'Hello, have a time to talk to me?',
  icons: {
-  whatsapp: 'path/to/whatsapp-icon-muow.svg',
-  close: 'path/to/close-muow.svg',
-  send: 'path/to/send-muow.svg',
+  whatsapp: 'assets/images/whatsapp-icon-muow.svg',
+  close: 'assets/images/close-muow.svg',
+  send: 'assets/images/send-muow.svg',
  },
- notificationSound: 'path/to/notification.mp3',
+ notificationSound: 'assets/audios/notification.mp3',
  playNotificationSound: true,
 });
 ```
+
+[View demo :arrow_forward:](https://luan11.github.io/muow-example/)
 
 [View more about properties :arrow_up:](#Properties)
 
