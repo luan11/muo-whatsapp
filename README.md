@@ -25,10 +25,10 @@ Then you have included the assets, now include JavaScript and CSS (optional, but
 ```html
 <!-- Include muow.css and font used in the HEAD -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/path/to/muow.css">
+<link rel="stylesheet" href="path/to/muow.css">
 
 <!-- Include muow.min.js before BODY closing -->
-<script src="/path/to/muow.min.js"></script>
+<script src="path/to/muow.min.js"></script>
 ```
 
 [View a code example :arrow_down:](#Usage)
@@ -73,7 +73,7 @@ The placeholder of message field.
 #### defaultMessage
 
 - Type: `string`
-- Default: `Hi, `
+- Default: `Hi,`
 
 The default message to receive if [chat](#chat): `false`.
 
@@ -116,11 +116,11 @@ new Muow({
  messageFieldPlaceholder: 'Write what you need...',
  defaultMessage: 'Hello, have a time to talk to me?',
  icons: {
-  whatsapp: '/path/to/whatsapp-icon-muow.svg',
-  close: '/path/to/close-muow.svg',
-  send: '/path/to/send-muow.svg',
+  whatsapp: 'path/to/whatsapp-icon-muow.svg',
+  close: 'path/to/close-muow.svg',
+  send: 'path/to/send-muow.svg',
  },
- notificationSound: '/path/to/notification.mp3',
+ notificationSound: 'path/to/notification.mp3',
  playNotificationSound: true,
 });
 ```
