@@ -80,7 +80,7 @@ export default class Muow {
 			trigger.onclick = (e) => {
 				e.stopPropagation();
 
-				if(trigger.classList.value.indexOf('active') !== -1) {
+				if(trigger.getAttribute('class') && trigger.getAttribute('class').value.indexOf('active') !== -1) {
 					chat.classList.remove('open');
 					message.value = '';
 					trigger.classList.remove('active');
