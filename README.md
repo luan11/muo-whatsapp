@@ -125,9 +125,9 @@ new Muow({
 });
 ```
 
-[View demo :arrow_forward:](https://luan11.github.io/muow-example/)
+[View a demo :arrow_forward:](https://luan11.github.io/muow-example/)
 
-[View more about properties :arrow_up:](#Properties)
+[View more about the properties :arrow_up:](#Properties)
 
 ## License
 
