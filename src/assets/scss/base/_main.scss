@@ -59,7 +59,7 @@
 			background-color: $sand;
 		}
 
-		#muow-close {
+		> #muow-close {
 			transition: z-index .3s ease-in-out .3s, transform .3s ease-in-out, opacity .3s ease-in-out;
 			position: absolute;
 			height: 24px;
@@ -70,11 +70,6 @@
 			background-color: $white;
 			border-radius: 50%;
 			box-shadow: 0px 2px 6px rgba($black, 0.45);
-
-			> img {
-				width: 12px;
-				height: 12px;
-			}
 			
 			@include responsive('MIN', $min: $screen-md) {
 				opacity: 0;
@@ -88,7 +83,7 @@
 			}
 		}
 
-		.header {
+		> .header {
 			border-top-left-radius: 8px;
 			border-top-right-radius: 8px;
 			background-color: $green-darkest;
@@ -101,8 +96,8 @@
 			.profile {
 				&-picture {
 					border-radius: 50%;
-					width: 28px;
-					height: 28px;
+					width: 32px;
+					height: 32px;
 					margin-left: 12px;
 				}
 
@@ -116,7 +111,20 @@
 			}
 		}
 
-		.main {
+		> .date {
+			background-color: lighten($blue, 35%);
+			color: $blue;
+			text-transform: uppercase;
+			padding: 2px 8px;
+			border-radius: 4px;
+			font-weight: 600;
+			font-size: 10px;
+			display: block;
+			margin: 8px auto 0;
+			box-shadow: 0 1px 4px rgba($black, .10);
+		}
+
+		> .main {
 			position: relative;
 			z-index: 1;
 			width: 100%;
@@ -128,10 +136,10 @@
 				margin: 0 10px;
 			}
 
-			#muow-send {
+			> #muow-send {
 				@include transition;
-				width: 38px;
-				height: 38px;
+				width: 42px;
+				height: 42px;
 				background-color: $green-darkest;
 				border: 0;
 				border-radius: 50%;
@@ -142,11 +150,6 @@
 				bottom: 0;
 				margin: auto 0;
 
-				> img {
-					width: 18px;
-					height: 16px;
-				}
-
 				&:hover, &:focus {
 					background-color: $green-dark;
 				}
@@ -155,7 +158,7 @@
 
 		&:hover {
 			@include responsive('MIN', $min: $screen-md) {
-				#muow-close {
+				> #muow-close {
 					@include transition($duration: .35s);
 					z-index: 0;
 					opacity: 1;
@@ -167,10 +170,10 @@
 
 	&-control {
 		border: 0;
-		height: 30px;
-		border-radius: 15px;
+		height: 35px;
+		border-radius: 17.5px;
 		padding: 0 15px;
-		font-size: 12px;
+		font-size: 12.5px;
 		line-height: 16px;
 		color: $black;
 		width: 100%;
@@ -206,11 +209,6 @@
 		background-color: $green-light;
 		border-radius: 50%;
 		box-shadow: 0px 2px 4px rgba($black, 0.4);
-
-		> img {
-			width: 30px;
-			height: 30px;
-		}
 
 		&:hover {
 			background-color: #3D9D61;

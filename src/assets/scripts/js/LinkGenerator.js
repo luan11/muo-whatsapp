@@ -8,11 +8,9 @@ export default class LinkGenerator {
 	 * @param {boolean} [openUrl=true]
 	 * @memberof LinkGenerator
 	 */
-	constructor(countryCode, phoneNumber, message, openUrl = true) {
-		this.params = {
-			phone: countryCode.toString() + phoneNumber.toString(),
-			text: message,
-		};
+	constructor(phone, message, openUrl = true) {
+		this.phone = phone;
+		this.message = message;
 
 		this.build();
 		if(openUrl) this.open();
@@ -24,7 +22,7 @@ export default class LinkGenerator {
 	 * @memberof LinkGenerator
 	 */
 	build() {
-		this.url = `https://wa.me/${ this.params.phone }?text=${ encodeURIComponent(this.params.text) }`;
+		this.url = `https://wa.me/${ this.phone }?text=${ encodeURIComponent(this.text) }`;
 	}
 
 	/**
