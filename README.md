@@ -6,16 +6,7 @@
 
 ### Environment
 
-To use, you'll need to include the Muow assets into your project. The assets are:
-
-- images:
-  - `whatsapp-icon-muow.svg`
-  - `send-muow.svg`
-  - `close-muow.svg`
-- audio:
-  - `notification.mp3`
-
-Then you have included the assets, now include JavaScript and CSS (optional, but recommended) files into your HTML.
+To use, you'll need to include the Muow JavaScript and CSS (optional, but recommended) files into your HTML.
 
 **Remember:**
 
@@ -35,7 +26,7 @@ Then you have included the assets, now include JavaScript and CSS (optional, but
 
 ### Properties
 
-#### chat
+#### showChat
 
 - Type: `boolean`
 - Default: `true`
@@ -44,24 +35,30 @@ Show the chat to user input a customized message.
 
 #### phone
 
+- Type: `string`
+- Default: `+55 (11) 90000-0000`
+
+The phone number to receive the messages.
+
+#### defaultMessage
+
+- Type: `string`
+- Default: `Hello, how are you?`
+
+The default message to receive if [chat](#chat): `false`.
+
+#### profile
+
 - Type: `object`
-- Default: `{ countryCode: '55', number: '11900000000' }`
+- Properties:
+  - picture:
+    - Type: `string`
+    - Default: `https://picsum.photos/32`
+  - name:
+    - Type: `string`
+    - Default: `Message us on WhatsApp`
 
-The phone number to receive the messages (Please set `countryCode` and `number` as escaped string).
-
-#### profilePicture
-
-- Type: `string`
-- Default: `https://www.placehold.it/28x28`
-
-The profile picture of chat.
-
-#### profileName
-
-- Type: `string`
-- Default: `Name`
-
-The representative name of chat.
+The profile data.
 
 #### messageFieldPlaceholder
 
@@ -70,33 +67,25 @@ The representative name of chat.
 
 The placeholder of message field.
 
-#### defaultMessage
-
-- Type: `string`
-- Default: `Hi,`
-
-The default message to receive if [chat](#chat): `false`.
-
-#### icons
-
-- Type: `object`
-- Default: `{ whatsapp: 'assets/images/whatsapp-icon-muow.svg', close: 'assets/images/close-muow.svg', send: 'assets/images/send-muow.svg' }`
-
-The path of assets.
-
-#### notificationSound
-
-- Type: `string`
-- Default: `assets/audio/notification.mp3`
-
-The path of notification sound.
-
 #### playNotificationSound
 
 - Type: `boolean`
 - Default: `false`
 
 Play a notification sound on chat opening.
+
+#### date
+
+- Type: `object`
+- Properties:
+  - translations:
+    - Type: `object`
+    - Default: `{ 'en-US': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], 'pt-BR': ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'] }`
+  - lang:
+    - Type: `string`
+    - Default: `en-US`
+
+The language of date displayed in chat.
 
 ### Usage
 
@@ -106,22 +95,13 @@ After setting up the [environment](#Environment), just instantiate the Muow clas
 
 ```js
 new Muow({
- chat: true,
- phone: {
-  countryCode: '55',
-  number: '11912345678',
- },
- profilePicture: 'https://avatars1.githubusercontent.com/u/36796413?s=28&v=4',
- profileName: 'luan11',
- messageFieldPlaceholder: 'Write what you need...',
+ phone: '+55 (11) 91111-1111',
  defaultMessage: 'Hello, have a time to talk to me?',
- icons: {
-  whatsapp: 'assets/images/whatsapp-icon-muow.svg',
-  close: 'assets/images/close-muow.svg',
-  send: 'assets/images/send-muow.svg',
+ profile: {
+  picture: 'https://avatars1.githubusercontent.com/u/36796413?s=28&v=4',
+  name: 'Luan Novais'
  },
- notificationSound: 'assets/audios/notification.mp3',
- playNotificationSound: true,
+ messageFieldPlaceholder: 'Write what you need...',
 });
 ```
 
