@@ -22,7 +22,7 @@ export default class LinkGenerator {
 	 * @memberof LinkGenerator
 	 */
 	build() {
-		this.url = `https://wa.me/${ this.phone }?text=${ encodeURIComponent(this.text) }`;
+		this.url = `https://wa.me/${ this.phone }?text=${ encodeURIComponent(this.message) }`;
 	}
 
 	/**
